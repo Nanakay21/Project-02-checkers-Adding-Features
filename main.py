@@ -359,7 +359,7 @@ def tutorial():
     exit_button_font = pygame.font.Font(None, 32)
     exit_button_text = exit_button_font.render("Exit Tutorial", True, (113, 225, 255))
     exit_button_rect = exit_button_text.get_rect(center=(Width // 2, Height - 50))
-    pygame.draw.rect(tutorial_screen, (64, 64, 64), exit_button_rect.inflate(20, 10))
+    pygame.draw.rect(tutorial_screen, (60, 92, 144), exit_button_rect.inflate(20, 10))
     tutorial_screen.blit(exit_button_text, exit_button_rect)
 
     pygame.display.flip()
@@ -417,7 +417,7 @@ def settings():
     exit_button_font = pygame.font.Font(None, 32)
     exit_button_text = exit_button_font.render("Exit Settings", True, (113, 225, 255))
     exit_button_rect = exit_button_text.get_rect(center=(Width // 2, Height - 100))
-    pygame.draw.rect(settings_screen, (128, 128, 128), exit_button_rect.inflate(20, 10))
+    pygame.draw.rect(settings_screen, (60, 92, 144), exit_button_rect.inflate(20, 10))
     settings_screen.blit(exit_button_text, exit_button_rect)
 
     pygame.display.flip()
@@ -479,7 +479,7 @@ def show_leaderboard():
     exit_button_font = pygame.font.Font(None, 32)
     exit_button_text = exit_button_font.render("Return to Main Menu", True, (113, 225, 255))
     exit_button_rect = exit_button_text.get_rect(center=(Width // 2, Height - 50))
-    pygame.draw.rect(screen, (64, 64, 64), exit_button_rect.inflate(20, 10))
+    pygame.draw.rect(screen, (60, 92, 144), exit_button_rect.inflate(20, 10))
     screen.blit(exit_button_text, exit_button_rect)
 
     pygame.display.flip()
@@ -511,9 +511,9 @@ def board_customization():
     board_customization_screen.blit(credits_text2, credits_rect2)
     # Exit button to return back to menu
     exit_button_font = pygame.font.Font(None, 32)
-    exit_button_text = exit_button_font.render("Exit Board Customization", True, (255, 255, 255))
+    exit_button_text = exit_button_font.render("Exit Board Customization", True, (113, 225, 255))
     exit_button_rect = exit_button_text.get_rect(center=(Width // 2, Height - 100))
-    pygame.draw.rect(board_customization_screen, (128, 128, 128), exit_button_rect.inflate(20, 10))
+    pygame.draw.rect(board_customization_screen, (60, 92, 144), exit_button_rect.inflate(20, 10))
     board_customization_screen.blit(exit_button_text, exit_button_rect)
 
     # Board Color Text
@@ -525,7 +525,7 @@ def board_customization():
     box_height = text_rect.height + 20  # Increase height
     box_rect = pygame.Rect(text_rect.left - 20, text_rect.top - 10, box_width, box_height)
     # Draw the enlarged box behind the text
-    pygame.draw.rect(board_customization_screen, (128, 128, 128), box_rect)
+    pygame.draw.rect(board_customization_screen, (60, 92, 144), box_rect)
     board_customization_screen.blit(board_color_text, text_rect)
         
     square_side = 50  # Size of the square

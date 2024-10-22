@@ -32,10 +32,10 @@ class Player:
         font = pygame.font.Font(None, 32)
 
         # Render the background box
-        pygame.draw.rect(screen, (128, 128, 128), (Width // 2 - 225, Height // 2 - 25, 450, 50))  # Adjust size and position as needed
+        pygame.draw.rect(screen, (60, 92, 144), (Width // 2 - 225, Height // 2 - 25, 450, 50))  # Adjust size and position as needed
 
         # Render the text on the background box
-        input_text = font.render("Enter Your Name: " + player_name, True, (255, 255, 255))
+        input_text = font.render("Enter Your Name: " + player_name, True, (113, 225, 255))
         input_rect = input_text.get_rect(center=(Width // 2, Height // 2))
         screen.blit(input_text, input_rect)
 
