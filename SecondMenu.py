@@ -23,8 +23,8 @@ pygame.init()
 player1_name = Player("Player 1", 0)
 player2_name = Player("Player 2", 0)
 score_manager = ScoreManager("user_data/user_data.json")
-cursor_color = (100, 100, 100) # darker grey
-color = (128, 128, 128) # grey
+cursor_color = (33, 37, 126) # darker grey
+color = (60, 92, 144) # grey
 
 def get_row_col_from_mouse(pos):
     """
@@ -61,16 +61,16 @@ class SecondMenu:
         credits_font = pygame.font.Font(None, 25)
 
         # Credits text
-        credits_text1 = credits_font.render(credits1, True, (255, 255, 255))
+        credits_text1 = credits_font.render(credits1, True, (113, 225, 255))
         credits_rect1 = credits_text1.get_rect(center=(Width // 2, 650))
-        credits_text2 = credits_font.render(credits2, True, (255, 255, 255))
+        credits_text2 = credits_font.render(credits2, True, (113, 225, 255))
         credits_rect2 = credits_text2.get_rect(center=(Width // 2, 670))
 
         background_image = pygame.image.load("checkers.jpg")
         background_image = pygame.transform.scale(background_image, (Width, Height))
 
         title_font = pygame.font.Font(None, 64)
-        title_text = title_font.render(message, True, (255, 255, 255))
+        title_text = title_font.render(message, True, (113, 225, 255))
         title_rect = title_text.get_rect(center=(Width // 2, 38))
 
         # image of the background
@@ -83,14 +83,14 @@ class SecondMenu:
         icon_size = (45, 45)  # Adjust the size of the icon as needed
         button_height = 50
         spacing = 10
-        color = (128, 128, 128)  # grey
+        color = (60, 92, 144)  # grey
 
         # PvP Button
         position = (Width // 2 - 150, Height // 3 - 25)
         size = (300, 50)  # width, height
 
         button_font = pygame.font.Font(None, 32)
-        button_text1 = button_font.render("Start Game VS Player", True, (255, 255, 255))  # Button text and color
+        button_text1 = button_font.render("Start Game VS Player", True, (113, 225, 255))  # Button text and color
         button_text_rect1 = button_text1.get_rect(center=(Width // 2, Height // 3))
 
         # Create button on screen using position and size parameters
@@ -102,7 +102,7 @@ class SecondMenu:
         position = (Width // 2 - 150, Height // 3 + button_height + spacing)
         size = (300, button_height)  # width, height
 
-        button_text2 = button_font.render("Start Game VS Computer", True, (255, 255, 255))  # Button text and color
+        button_text2 = button_font.render("Start Game VS Computer", True, (113, 225, 255))  # Button text and color
         button_text_rect2 = button_text2.get_rect(
         center=(Width // 2, Height // 3 + button_height + spacing + button_height // 2))
 
@@ -116,7 +116,7 @@ class SecondMenu:
         size = (300, 50)  # width, height
 
         button_font = pygame.font.Font(None, 32)
-        button_text3 = button_font.render("Back to Main Menu", True, (255, 255, 255)) # Button text and color
+        button_text3 = button_font.render("Back to Main Menu", True, (113, 225, 255)) # Button text and color
         button_text_rect3 = button_text3.get_rect(center=(Width // 2, Height // 3+160))
         pygame.draw.rect(start_game_screen, color, pygame.Rect(position, size))
         start_game_screen.blit(button_text3, button_text_rect3)
@@ -198,7 +198,7 @@ class SecondMenu:
 
         # Exit Button
         button_font = pygame.font.Font(None, 32)
-        exit_text = button_font.render("Exit Game", True, (255, 255, 255))
+        exit_text = button_font.render("Exit Game", True, (113, 225, 255))
         exit_button_rect = exit_text.get_rect(center=(Width // 2+350, Height - 100))
         pygame.draw.rect(screen, (128, 128, 128), exit_button_rect)
         screen.blit(exit_text, exit_button_rect)
@@ -245,7 +245,7 @@ class SecondMenu:
 
         # Exit Button
         button_font = pygame.font.Font(None, 32)
-        exit_text = button_font.render("Exit Game", True, (255, 255, 255))
+        exit_text = button_font.render("Exit Game", True, (113, 225, 255))
         exit_button_rect = exit_text.get_rect(center=(Width // 2+350, Height - 100))
         pygame.draw.rect(screen, (128, 128, 128), exit_button_rect)
         screen.blit(exit_text, exit_button_rect)

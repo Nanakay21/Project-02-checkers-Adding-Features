@@ -14,7 +14,7 @@ def menu_buttons():
     size = (300, 50)  # width, height
         
     button_font = pygame.font.Font(None, 32)
-    button_text = button_font.render("Start Game Against Player", True, (255, 255, 255)) # Button text and color
+    button_text = button_font.render("Start Game Against Player", True, (113, 225, 255)) # Button text and color
     button_text_rect = button_text.get_rect(center=(Width // 2, Height // 3))
     
     # Create button on screen using position and size parameters
@@ -40,7 +40,7 @@ def menu_buttons():
     position = (Width // 2 - 150, Height // 3 + button_height + spacing)
     size = (300, button_height)  # width, height
 
-    button_text = button_font.render("Settings", True, (255, 255, 255))  # Button text and color
+    button_text = button_font.render("Settings", True, (113, 225, 255))  # Button text and color
     button_text_rect = button_text.get_rect(center=(Width // 2, Height // 3 + button_height + spacing + button_height // 2))
 
     # Set the desired size for the icon
@@ -74,7 +74,7 @@ def menu_buttons():
     size = (300, 50)  # width, height
 
     button_font = pygame.font.Font(None, 32)
-    button_text = button_font.render("Tutorial", True, (255, 255, 255)) # Button text and color
+    button_text = button_font.render("Tutorial", True, (113, 225, 255)) # Button text and color
     button_text_rect = button_text.get_rect(center=(Width // 2, Height // 3+160))
     pygame.draw.rect(screen, color, pygame.Rect(position, size))
     screen.blit(button_text, button_text_rect)
@@ -107,28 +107,28 @@ def tutorial(): # tutorial prompt (subject to change text)
 
     # First message
     tutorial_font = pygame.font.Font(None, 64)
-    tutorial_text = tutorial_font.render("Welcome to Checkers+!", True, (255, 255, 255))
+    tutorial_text = tutorial_font.render("Welcome to Checkers+!", True, (113, 225, 255))
     tutorial_rect = tutorial_text.get_rect(center=(Width // 2, 50))
     tutorial_screen.blit(tutorial_text, tutorial_rect)
 
     # Second message
     tutorial_font = pygame.font.Font(None, 32)
-    tutorial_text = tutorial_font.render("This tutorial should provide you with instructions on how to play and use Checkers+.", True, (255, 255, 255))
+    tutorial_text = tutorial_font.render("This tutorial should provide you with instructions on how to play and use Checkers+.", True, (113, 225, 255))
     tutorial_rect = tutorial_text.get_rect(center=(Width // 2, 105))
     tutorial_screen.blit(tutorial_text, tutorial_rect)
 
     # First paragraph
     tutorial_font = pygame.font.Font(None, 25)
-    tutorial_text = tutorial_font.render("There are many features accessible from the Checkers+ main menu. You can start a PvP (player versus player) game,", True, (255, 255, 255))
+    tutorial_text = tutorial_font.render("There are many features accessible from the Checkers+ main menu. You can start a PvP (player versus player) game,", True, (113, 225, 255))
     tutorial_rect = tutorial_text.get_rect(center=(Width // 2, 145))
     tutorial_screen.blit(tutorial_text, tutorial_rect)
-    tutorial_text = tutorial_font.render("a PvC (player versus computer) game, and access other features like the settings, leaderboard, and this tutorial!", True, (255, 255, 255))
+    tutorial_text = tutorial_font.render("a PvC (player versus computer) game, and access other features like the settings, leaderboard, and this tutorial!", True, (113, 225, 255))
     tutorial_rect = tutorial_text.get_rect(center=(Width // 2, 170))
     tutorial_screen.blit(tutorial_text, tutorial_rect)
-    tutorial_text = tutorial_font.render("The settings will allow you to turn music on or off, and customize the checkers board to your liking.", True, (255, 255, 255))
+    tutorial_text = tutorial_font.render("The settings will allow you to turn music on or off, and customize the checkers board to your liking.", True, (113, 225, 255))
     tutorial_rect = tutorial_text.get_rect(center=(Width // 2, 195))
     tutorial_screen.blit(tutorial_text, tutorial_rect)
-    tutorial_text = tutorial_font.render("The leaderboard will show recent match results, displaying who won and loss. These will reset when you quit the app.", True, (255, 255, 255))
+    tutorial_text = tutorial_font.render("The leaderboard will show recent match results, displaying who won and loss. These will reset when you quit the app.", True, (113, 225, 255))
     tutorial_rect = tutorial_text.get_rect(center=(Width // 2, 220))
     tutorial_screen.blit(tutorial_text, tutorial_rect)
 
@@ -141,37 +141,37 @@ def tutorial(): # tutorial prompt (subject to change text)
     screen.blit(checkers_icon_resized, checkers_icon_rect.topleft) 
 
     # Second paragraph
-    tutorial_text = tutorial_font.render("To play Checkers+, standard checkers rules are applied...with a twist!", True, (255, 255, 255))
+    tutorial_text = tutorial_font.render("To play Checkers+, standard checkers rules are applied...with a twist!", True, (113, 225, 255))
     tutorial_rect = tutorial_text.get_rect(center=(Width // 2, 365))
     tutorial_screen.blit(tutorial_text, tutorial_rect)
-    tutorial_text = tutorial_font.render("In standard checkers, players can only move a piece diagonally until that piece has reached the last row", True, (255, 255, 255))
+    tutorial_text = tutorial_font.render("In standard checkers, players can only move a piece diagonally until that piece has reached the last row", True, (113, 225, 255))
     tutorial_rect = tutorial_text.get_rect(center=(Width // 2, 390))
     tutorial_screen.blit(tutorial_text, tutorial_rect)
-    tutorial_text = tutorial_font.render("of the opposing side. In our game, you will be allowed to move a piece backwards every 45 seconds, even", True, (255, 255, 255))
+    tutorial_text = tutorial_font.render("of the opposing side. In our game, you will be allowed to move a piece backwards every 45 seconds, even", True, (113, 225, 255))
     tutorial_rect = tutorial_text.get_rect(center=(Width // 2, 415))
     tutorial_screen.blit(tutorial_text, tutorial_rect)
-    tutorial_text = tutorial_font.render("if that piece has not yet reached the last row. You also only have 15 seconds to make a move, so think fast!", True, (255, 255, 255))
+    tutorial_text = tutorial_font.render("if that piece has not yet reached the last row. You also only have 15 seconds to make a move, so think fast!", True, (113, 225, 255))
     tutorial_rect = tutorial_text.get_rect(center=(Width // 2, 440))
     tutorial_screen.blit(tutorial_text, tutorial_rect)
-    tutorial_text = tutorial_font.render("Your 45 second timer will not reset until you make a backward move. Don't let them go to waste!", True, (255, 255, 255))
+    tutorial_text = tutorial_font.render("Your 45 second timer will not reset until you make a backward move. Don't let them go to waste!", True, (113, 225, 255))
     tutorial_rect = tutorial_text.get_rect(center=(Width // 2, 465))
     tutorial_screen.blit(tutorial_text, tutorial_rect)
-    tutorial_text = tutorial_font.render("When the game starts, you will be asked to enter the names of the players (or player, if playing against the computer).", True, (255, 255, 255))
+    tutorial_text = tutorial_font.render("When the game starts, you will be asked to enter the names of the players (or player, if playing against the computer).", True, (113, 225, 255))
     tutorial_rect = tutorial_text.get_rect(center=(Width // 2, 490))
     tutorial_screen.blit(tutorial_text, tutorial_rect)
-    tutorial_text = tutorial_font.render("Doing this will allow your name(s) and outcome to be shown on the leaderboard.", True, (255, 255, 255))
+    tutorial_text = tutorial_font.render("Doing this will allow your name(s) and outcome to be shown on the leaderboard.", True, (113, 225, 255))
     tutorial_rect = tutorial_text.get_rect(center=(Width // 2, 515))
     tutorial_screen.blit(tutorial_text, tutorial_rect)
-    tutorial_text = tutorial_font.render("By now, you should have a basic understanding of what Checkers+ has to offer. Go give it a try!", True, (255, 255, 255))
+    tutorial_text = tutorial_font.render("By now, you should have a basic understanding of what Checkers+ has to offer. Go give it a try!", True, (113, 225, 255))
     tutorial_rect = tutorial_text.get_rect(center=(Width // 2, 540))
     tutorial_screen.blit(tutorial_text, tutorial_rect)
-    tutorial_text = tutorial_font.render("If you ever need to view this tutorial again, you can access it from the main menu. Have fun!", True, (255, 255, 255))
+    tutorial_text = tutorial_font.render("If you ever need to view this tutorial again, you can access it from the main menu. Have fun!", True, (113, 225, 255))
     tutorial_rect = tutorial_text.get_rect(center=(Width // 2, 565))
     tutorial_screen.blit(tutorial_text, tutorial_rect)
 
     # Exit button to return back to menu
     exit_button_font = pygame.font.Font(None, 32)
-    exit_button_text = exit_button_font.render("Exit Tutorial", True, (255, 255, 255))
+    exit_button_text = exit_button_font.render("Exit Tutorial", True, (113, 225, 255))
     exit_button_rect = exit_button_text.get_rect(center=(Width // 2, Height - 50))
     pygame.draw.rect(tutorial_screen, (64, 64, 64), exit_button_rect.inflate(20, 10))
     tutorial_screen.blit(exit_button_text, exit_button_rect)

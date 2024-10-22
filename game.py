@@ -3,7 +3,7 @@ Game.py
 The game file holds the game logic and game class.
 """
 import pygame
-from constants import RED, WHITE, YELLOW, SQUARE_SIZE
+from constants import RED, WHITE, YELLOW, SQUARE_SIZE, BLUE, BLACK
 from Main_Board import Main_Board
 
 class Game: 
@@ -26,7 +26,7 @@ class Game:
         self.turn = RED
         self.valid_moves = {}
         self.font = pygame.font.Font(None, 36)  # Font for rendering text
-        self.text_color = WHITE  # Text color
+        self.text_color = BLUE  # Text color
         self.text_urgent_color = RED  # Text color when time is running out
         self.screen = pygame.display.set_mode((1000, 700))
         self.player1 = player1
