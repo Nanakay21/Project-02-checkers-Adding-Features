@@ -38,7 +38,7 @@ class Game:
         """
         elapsed_time = pygame.time.get_ticks() - self.turn_start_time
         elapsed_seconds = elapsed_time // 1000 
-        text = f"Move Timer: {elapsed_seconds} s"
+        text = f"Move Timer: {30 - elapsed_seconds} s"
         text_surface = self.font.render(text, True, self.text_color)
         if elapsed_time > 25000:
             text_surface = self.font.render(text, True, self.text_urgent_color)
