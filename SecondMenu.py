@@ -205,6 +205,7 @@ class SecondMenu:
         pygame.display.flip()
 
         while run:
+            mouse_pos = pygame.mouse.get_pos()
             clock.tick(60)
             if game.winner() != None:
                 print(game.winner())
@@ -229,6 +230,13 @@ class SecondMenu:
                     row, col = get_row_col_from_mouse(pos)
                     game.select(row, col)
                     # Check for background music event
+                if event.type == pygame.MOUSEBUTTONDOWN:
+                    if event.button == 1:  # Left mouse button
+                        # Exit Button for game
+                        if game.check_hover(mouse_pos) == True:  # Check if clicked inside the button
+                            print("Button clicked!")
+                            run = False
+
                 if event.type == background_music.SONG_END:
                         background_music.handle_event(event)
 
@@ -251,7 +259,9 @@ class SecondMenu:
         screen.blit(exit_text, exit_button_rect)
         pygame.display.flip()
 
+
         while run:
+            mouse_pos = pygame.mouse.get_pos()
             clock.tick(60)
             if game.turn == WHITE:
                 value, new_board = minimax(game.get_board(), 4, WHITE, game)
@@ -275,7 +285,15 @@ class SecondMenu:
                     pos = pygame.mouse.get_pos()
                     row, col = get_row_col_from_mouse(pos)
                     game.select(row, col)
-                    
+
+                if event.type == pygame.MOUSEBUTTONDOWN:
+                    if event.button == 1:  # Left mouse button
+                        # Exit Button for game
+                        if game.check_hover(mouse_pos) == True:  # Check if clicked inside the button
+                            print("Button clicked!")
+                            run = False
+
+                        
                 if event.type == background_music.SONG_END:
                         background_music.handle_event(event)
 

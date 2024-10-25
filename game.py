@@ -31,6 +31,32 @@ class Game:
         self.screen = pygame.display.set_mode((1000, 700))
         self.player1 = player1
         self.player2 = player2
+
+        self.exit_button_rect = 0
+        self.rectWidth = 0
+        self.rectHeight = 0
+
+    def exitButton(self):
+        Width, Height = 1000, 700
+        button_font = pygame.font.Font(None, 32)
+        exit_text = button_font.render("Exit Game", True, (113, 225, 255))
+        self.rectWidth = Width // 2+350
+        self.rectHeight = Height - 100
+
+        self.exit_button_rect = exit_text.get_rect(center=(self.rectWidth, self.rectHeight))
+        pygame.draw.rect(self.screen, (128, 128, 128), self.exit_button_rect)
+        self.screen.blit(exit_text, self.exit_button_rect)
+        # pygame.display.flip()
+
+    def check_hover(self, mouse_pos):
+        self.is_hovered = self.exit_button_rect.collidepoint(mouse_pos)
+        return self.is_hovered
+
+    def getExitHeight(self):
+        return self.rectHeight
+    
+    def getExitWidth(self):
+        return self.rectWidth
         
     def check_turn_timeout(self):
         """
@@ -82,6 +108,10 @@ class Game:
         self.screen.blit(text_surface, (715, 350))
         self.screen.blit(text_surface2, (715, 400))
 
+    # def onClick(event):
+    #     pass
+    # button.on("click", onClick)
+
     def update(self): 
         """
         The update function updates the board to show the current board and features.
@@ -92,6 +122,7 @@ class Game:
         self.display_turn()
         self.display_piece_count()
         self.display_player_names(self.player1, self.player2)
+        self.exitButton()
         pygame.display.update()
         
     def winner(self): 
