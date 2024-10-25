@@ -26,6 +26,18 @@ current_track = 0
 SONG_END = pygame.USEREVENT + 1
 second_menu = SecondMenu(tracks)
 
+def fetch_reddit_posts():
+    """
+    Fetches Reddit posts safely with error handling.
+    Returns None if there's an error.
+    """
+    try:
+        client = redditwarp.SYNC.Client()
+        posts = next(client.p.subreddit.pull.top('Temple', amount=1, time='hour'))
+        return posts
+    except Exception as e:
+        print(f"Error fetching Reddit posts: {e}")
+        return None
 
 def music_loop():
     """
@@ -103,8 +115,9 @@ def main():
         screen.blit(message_text, message_rect)
         screen.blit(credits_text1, credits_rect1)
         screen.blit(credits_text2, credits_rect2)
-        
+
         menu_buttons()
+
         pygame.display.flip()
 
     # done! time to quit
@@ -306,6 +319,9 @@ def menu_buttons():
     screen.blit(button_text, button_text_rect)
 
     return button_rect, button_rect_2, button_rect_3, button_rect_4, button_rect_5
+
+
+
 
 def tutorial(): 
     """
