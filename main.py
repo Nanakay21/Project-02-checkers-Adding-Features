@@ -3,12 +3,13 @@ Main.py
 The main file holds menu operations for the game including sound, settings, leaderboard, tutorial, and board customization.
 
 """
+import redditwarp.SYNC
 import pygame
 from SecondMenu import SecondMenu
 from constants import BLUE, YELLOW, RED, GREEN
 from ScoreManager import ScoreManager
 from SecondMenu import SecondMenu
-
+import webbrowser
 
 pygame.init()
 pygame.mixer.init() # initialize pygame mixer for music
@@ -70,6 +71,7 @@ def main():
     the corresponding function will be called.
     """
     running = True
+    buttons = menu_buttons()
     while running:
         # did the user click the window close button?
         for event in pygame.event.get():
@@ -88,6 +90,11 @@ def main():
                 # Check if the current song has finished, loop to next song
             elif event.type == SONG_END:
                 music_loop()
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                # Check if the click is within the text area
+                if text_surface.get_rect(center=(Width // 2, Height - rect_height // 2)).collidepoint(event.pos):
+                    webbrowser.open(news_text)  # Open the URL in a web browser
+
 
         #image of the background
         screen.blit(background_image, (0, 0))
@@ -107,6 +114,33 @@ def menu_buttons():
     """
     The menu buttons function creates the buttons on the main menu. It returns the button rectangles for each button so that they can be used in the main function.
     """
+    client = redditwarp.SYNC.Client()
+    posts = client.p.subreddit.pull.top('Temple', amount=1, time='minute')
+    m = next(posts)
+    # print(posts) 
+    # print(m.title)
+    # print(m.permalink)
+    font = pygame.font.Font(None, 24)  # None uses default font, size 36
+    global news_text 
+    news_text = m.permalink
+    global text_surface 
+    text_surface = font.render(news_text, True, (0, 0, 0))  # White text
+    global rect_height 
+    rect_height = 70
+    text_rect = pygame.Rect(0, Height - rect_height, Width, rect_height)  # Centered at bottom
+    global text_rect_center 
+    text_rect_center = text_surface.get_rect(center=(Width // 2, Height - rect_height // 2))
+    pygame.draw.rect(screen, (255, 255, 255), text_rect)
+    screen.blit(text_surface, text_rect_center)
+
+    title_font = pygame.font.Font(None, 32)
+    title_text = "Latest Temple Reddit News: (click it!)"  # Example title
+    title_surface = title_font.render(title_text, True, (0, 0, 0))  
+    title_rect = title_surface.get_rect(center=(text_rect.centerx, text_rect.top + 20))  
+
+  
+    screen.blit(title_surface, title_rect)  # Blit the title text
+
     # Used for buttons w/ images
     icon_size = (45, 45)  # Adjust the size of the icon as needed
     button_height = 50

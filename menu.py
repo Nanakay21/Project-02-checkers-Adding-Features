@@ -97,6 +97,8 @@ def menu_buttons():
     screen.blit(tutorial_icon_resized, tutorial_icon_rect.topleft)  # Draw the icon after drawing the button
     screen.blit(button_text, button_text_rect)
 
+
+
     return button_rect, button_rect_2, button_rect_3
 
 def tutorial(): # tutorial prompt (subject to change text)
