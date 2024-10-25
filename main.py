@@ -8,7 +8,7 @@ from SecondMenu import SecondMenu
 from constants import BLUE, YELLOW, RED, GREEN
 from ScoreManager import ScoreManager
 from SecondMenu import SecondMenu
-
+import redditwarp.SYNC
 
 pygame.init()
 pygame.mixer.init() # initialize pygame mixer for music
@@ -25,6 +25,18 @@ current_track = 0
 SONG_END = pygame.USEREVENT + 1
 second_menu = SecondMenu(tracks)
 
+def fetch_reddit_posts():
+    """
+    Fetches Reddit posts safely with error handling.
+    Returns None if there's an error.
+    """
+    try:
+        client = redditwarp.SYNC.Client()
+        posts = next(client.p.subreddit.pull.top('Temple', amount=1, time='hour'))
+        return posts
+    except Exception as e:
+        print(f"Error fetching Reddit posts: {e}")
+        return None
 
 def music_loop():
     """
@@ -88,7 +100,6 @@ def main():
                 # Check if the current song has finished, loop to next song
             elif event.type == SONG_END:
                 music_loop()
-
         #image of the background
         screen.blit(background_image, (0, 0))
         # display title information and credits
@@ -96,8 +107,9 @@ def main():
         screen.blit(message_text, message_rect)
         screen.blit(credits_text1, credits_rect1)
         screen.blit(credits_text2, credits_rect2)
-        
+
         menu_buttons()
+
         pygame.display.flip()
 
     # done! time to quit
@@ -107,6 +119,12 @@ def menu_buttons():
     """
     The menu buttons function creates the buttons on the main menu. It returns the button rectangles for each button so that they can be used in the main function.
     """
+
+    client = redditwarp.SYNC.Client()
+    m = next(client.p.subreddit.pull.top('Temple', amount=1, time='hour'))
+    print(m.title)
+    print(m.permalink)
+
     # Used for buttons w/ images
     icon_size = (45, 45)  # Adjust the size of the icon as needed
     button_height = 50
@@ -272,6 +290,9 @@ def menu_buttons():
     screen.blit(button_text, button_text_rect)
 
     return button_rect, button_rect_2, button_rect_3, button_rect_4, button_rect_5
+
+
+
 
 def tutorial(): 
     """
